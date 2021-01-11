@@ -50,8 +50,22 @@ const smartshowsuccess=()=>{
   })
 }
 
+//toast.fail
+// 2021-01-04
+// by: Christ Chang
+// url: https://github.com/Nightstars/smartui
+const smartshowfail=()=>{
+  wx.showToast({
+    title: "请求失败，接口异常！",
+    icon: 'none',
+    mask: true,
+    duration: 1000,
+  })
+}
+
 module.exports = {
   err: smartshowerr,
   info: smartshowinfo,
   success: smartshowsuccess,
+  fail: smartshowfail
 }

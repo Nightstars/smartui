@@ -12,7 +12,8 @@
 */
 
 const app=getApp()
-
+const msg = require('../msg/msg')
+let nav=require('../navigation/navigation')
 // request.post.login
 // 2020-12-31
 // by: ChristChang
@@ -34,7 +35,7 @@ const smartlogin=(url, data, success, fail)=> {
 
     },
     fail: function (res) {
-      fail()
+      fail(res)
     },
     complete: function (res) {
 
@@ -57,9 +58,16 @@ const smartdetails=(url, data, success, fail)=> {
     method: 'GET',
     success: function (res) {
       if (res.statusCode == 200) {
-        success(res.data)
+        if(res.header['Content-Type'].search('text/html')!=-1){
+          nav.redirect(app.globalData.loginUrl)
+        }
+        else{
+          success(res.data)
+        }
+      }else if(res.statusCode==404){
+        nav.redirect(app.globalData.loginUrl)
       } else {
-        fail()
+        fail(res)
       }
 
     },
@@ -87,7 +95,13 @@ const smartsearch=(url, data, success, fail)=> {
     method: 'GET',
     success: function (res) {
       if (res.statusCode == 200) {
-        success(res.data)
+        if(res.header['Content-Type'].search('text/html')!=-1){
+          nav.redirect(app.globalData.loginUrl)
+        }else{
+          success(res.data)
+        }      
+      }else if(res.statusCode==404){
+        nav.redirect(app.globalData.loginUrl)
       } else {
         fail()
       }
@@ -114,10 +128,20 @@ const smartaudit=(url, data, success, fail)=> {
       'content-type': 'application/x-www-form-urlencoded;charset=UTF-8', 
       'cookie': app.globalData.cookie
     },
-    method: 'GET',
+    method: 'Post',
     success: function (res) {
       if (res.statusCode == 200) {
-        success(res.data.data)
+        if(res.header['Content-Type'].search('text/html')!=-1){
+          nav.redirect(app.globalData.loginUrl)
+        }else{
+          if(res.data.Success){
+            success(res.data)
+          }else{
+            msg.info(res.data.Message)
+          }        
+        }
+      }else if(res.statusCode==404){
+        nav.redirect(app.globalData.loginUrl)
       } else {
         fail()
       }

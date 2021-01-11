@@ -1,0 +1,10 @@
+<!--smartui/components/loadmore/loadmore.wxml-->
+<view class="load_more" hidden="{{!loading}}">
+  <view class="load_loading"></view>
+  <view class="load-tips">正在拼命加载……</view>
+</view>
+<view class="load_end" hidden="{{!loaded}}">
+  <view>
+    喂，就你，别再拖了，我是有底线的
+  </view>  
+</view>

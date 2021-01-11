@@ -1,0 +1,19 @@
+/* smartui/components/floatingbtn/floatingbtn.wxss */
+.icon {  
+  bottom: 88rpx;
+  right: 50rpx;
+  position: fixed;
+  width: 90rpx;
+  height: 90rpx;
+  /* background:rgba(255, 255, 255,0); */
+  background:#1E9FFF;
+  /* border:0.5rpx solid #e7ebed; */
+  border-radius: 50%;
+  background-size: 72% 72%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.bg-color{
+  /* background:rgba(255, 255, 255,0); */
+  background:#1E9FFF
+}

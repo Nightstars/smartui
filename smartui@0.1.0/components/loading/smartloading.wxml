@@ -1,0 +1,6 @@
+<!--smartui/components/loading/smartloading.wxml-->
+<view class="smart-modal {{loadModal==true?'show':''}}" >
+  <view class="smart-dialog" style="width:240rpx">
+    <image src="{{bg}}" style="width:240rpx;height:240rpx"></image>
+  </view>
+</view>

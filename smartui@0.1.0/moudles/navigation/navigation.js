@@ -15,7 +15,7 @@
 // 2021-01-04
 // by: Christ Chang
 // url: https://github.com/Nightstars/smartui
-const smartto=(pageurl)=>{
+const to=(pageurl)=>{
   wx.navigateTo({
     url: pageurl
   })
@@ -25,13 +25,13 @@ const smartto=(pageurl)=>{
 // 2021-01-04
 // by: Christ Chang
 // url: https://github.com/Nightstars/smartui
-const smartredirect=(pageurl)=>{
+const redirect=(pageurl)=>{
   wx.redirectTo({
     url: pageurl
   })
 }
 
 module.exports={
-  to: smartto,
-  redirect: smartredirect
+  to: to,
+  redirect: redirect
 }

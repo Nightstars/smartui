@@ -1,7 +1,7 @@
 /*
 * A weapp packag library of the sha256 function.
 *
-* FILE:	msg.js
+* FILE:	sha256.js
 * VERSION:	1.0
 * AUTHOR:	Christ Chang <christzhangowner@gmail.com>
 *
@@ -205,7 +205,7 @@ function sha256_encode_hex() {
  
 /* Main function: returns a hex string representing the SHA256 value of the 
 given data */
-function smartsha256(data) {
+function sha256(data) {
   sha256_init();
   sha256_update(data, data.length);
   sha256_final();
@@ -214,5 +214,5 @@ function smartsha256(data) {
  
  
 module.exports = {
-  sha256: smartsha256
+  sha256: sha256
 }
