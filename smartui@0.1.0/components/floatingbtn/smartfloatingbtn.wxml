@@ -1,4 +1,0 @@
-<!--smartui/components/floatingbtn/floatingbtn.wxml-->
-<view class="bg-color" wx:if="{{!loadModal}}">
-  <text class="icon" style="background-image:url({{bg}})"></text>
-</view>

@@ -21,6 +21,23 @@
 
 ## 快速开始
 
+1. github 下载发布包，解压后放在项目根目录
+   
+
+``` javascript
+https://github.com/Nightstars/smartui/releases/download/0.5.4/dist.zip
+```
+
+   
+2. npm 安装
+   
+
+``` javascript
+npm i smartuiweapp
+```
+
+## 用法参考
+
 1. **组件使用**
    
 
@@ -30,7 +47,11 @@ index.json
 {
   "usingComponents": {
     ...,
+	[github 发布包用户(相对路径根据实际项目路径修改)]
     "smart-loading": "../../../../../smartui/components/loading/smartloading"
+	
+	[npm 用户]
+	"smart-loading": "smartuiweapp/components/loading/smartloading"
   }
 }
 
@@ -45,8 +66,13 @@ index.wxml
 ``` javascript
 index.js
 
+[github 发布包用户(相对路径根据实际项目路径修改)]
 let rq=require('../../../../../smartui/moudles/request/request')
 let msg=require('../../../../../smartui/moudles/msg/msg')
+
+[npm 用户]
+let rq=require('smartuiweapp/moudles/request/request')
+let msg=require('smartuiweapp/moudles/msg/msg')
 
 Page({
 	...
