@@ -78,13 +78,13 @@ Page({
 	...
 	search(parm){
 		var that=this
-		rq.search('二级地址',parm,function(res){
+		rq.search('二级地址',parm,(res)=>{
 		  that.setData({
 			modle: res.data,
 			loadModal:false,
 			loaded:false
 		  })
-		},function(res){
+		},(res)=>{
 		  msg.info(res.message)
 		}) 
 	}
