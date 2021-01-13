@@ -1,13 +1,6 @@
----
-title: smartui组件库使用手册
-tags: smartui,使用手册
-slug:  storywriter/tutorial
----
-**
+
 
 # smartui组件库使用手册
-
-**
 
 ## 基本组件
 
