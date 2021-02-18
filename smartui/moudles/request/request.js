@@ -156,9 +156,46 @@ const smartaudit=(url, data, success, fail)=> {
   })
 }
 
+//request.get.get
+// 2021-01-29
+// by: ChristChang
+// url: https://github.com/Nightstars/smartui
+const smartget=(url, data, success, fail)=> {
+  wx.request({
+    url: app.globalData.baseUrl+url,
+    data: data,
+    header: {
+      'content-type': 'application/x-www-form-urlencoded;charset=UTF-8', 
+      'cookie': app.globalData.cookie
+    },
+    method: 'GET',
+    success: function (res) {
+      if (res.statusCode == 200) {
+        if(res.header['Content-Type'].search('text/html')!=-1){
+          nav.redirect(app.globalData.loginUrl)
+        }else{
+          success(res.data)
+        }      
+      }else if(res.statusCode==404){
+        nav.redirect(app.globalData.loginUrl)
+      } else {
+        fail(res)
+      }
+
+    },
+    fail: function (res) {
+      fail(res)
+    },
+    complete: function (res) {
+
+    },
+  })
+}
+
 module.exports = {
   login: smartlogin,
   details: smartdetails,
   search: smartsearch,
-  audit: smartaudit
+  audit: smartaudit,
+  get: smartget
 }

@@ -7,8 +7,14 @@
 }
 
 .text-bold{
-  /* color:#faaf00; */
+  /* color:#faaf00;  */
   font-size: 30rpx;
+  font-weight: bolder;
+}
+
+.text-bold-cn{
+  /* color:#faaf00;  */
+  font-size: 26rpx;
   font-weight: bolder;
 }
 
@@ -33,3 +39,15 @@
   line-height: 45rpx;
 }
 
+.txt-mg-bottom{
+  margin-bottom: 20rpx;
+}
+
+.mg-top{
+  margin-top: 0rpx;
+}
+
+.txt-center{
+  width: 100%;
+  text-align: center;
+}

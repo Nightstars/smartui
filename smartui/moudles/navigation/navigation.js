@@ -31,7 +31,18 @@ const redirect=(pageurl)=>{
   })
 }
 
+//navigate to another page
+// 2021-01-25
+// by: Christ Chang
+// url: https://github.com/Nightstars/smartui
+const back=()=>{
+  wx.navigateBack({
+    delta: 1
+  });
+}
+
 module.exports={
   to: to,
-  redirect: redirect
+  redirect: redirect,
+  back: back,
 }
