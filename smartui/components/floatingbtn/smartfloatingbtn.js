@@ -11,6 +11,10 @@ Component({
     loadModal:{
       type:Boolean,
       default:false
+    },
+    theme:{
+      type:String,
+      default:'green'
     }
   },
 

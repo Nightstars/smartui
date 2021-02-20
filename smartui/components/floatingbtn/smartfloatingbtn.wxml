@@ -1,4 +1,5 @@
 <!--smartui/components/floatingbtn/floatingbtn.wxml-->
-<view class="bg-color" wx:if="{{!loadModal}}">
-  <text class="icon" style="background-image:url({{bg}})"></text>
+<view wx:if="{{!loadModal}}">
+  <text class="icon" style="background-image:url({{bg}})" wx:if="{{theme=='blue'}}"></text>
+  <text class="icon-green" style="background-image:url({{bg}})" wx:if="{{theme=='green'}}"></text>
 </view>
