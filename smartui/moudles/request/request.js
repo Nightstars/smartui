@@ -94,7 +94,7 @@ const smartsearch=(url, data, success, fail)=> {
     },
     method: 'GET',
     success: function (res) {
-      if (res.statusCode == 200) {
+      if (res.statusCode == 200||res.statusCode==401) {
         if(res.header['Content-Type'].search('text/html')!=-1){
           nav.redirect(app.globalData.loginUrl)
         }else{
@@ -192,10 +192,43 @@ const smartget=(url, data, success, fail)=> {
   })
 }
 
+//request.post.audit
+// 2021-03-17
+// by: ChristChang
+// url: https://github.com/Nightstars/smartui
+const smartpost=(url, data, success, fail)=> {
+  wx.request({
+    url: app.globalData.baseUrl+url,
+    data: data,
+    header: {
+      'content-type': 'application/x-www-form-urlencoded;charset=UTF-8', 
+      'cookie': app.globalData.cookie
+    },
+    method: 'Post',
+    success: function (res) {
+      if (res.statusCode == 200) {
+        success(res)
+      }else if(res.statusCode==404){
+        nav.redirect(app.globalData.loginUrl)
+      } else {
+        fail()
+      }
+
+    },
+    fail: function (res) {
+      fail()
+    },
+    complete: function (res) {
+
+    },
+  })
+}
+
 module.exports = {
   login: smartlogin,
   details: smartdetails,
   search: smartsearch,
   audit: smartaudit,
-  get: smartget
+  get: smartget,
+  post: smartpost
 }
