@@ -43,6 +43,35 @@ const smartlogin=(url, data, success, fail)=> {
   })
 }
 
+// request.post.login
+// 2021-06-10
+// by: ChristChang
+// url: https://github.com/Nightstars/smartui
+const smartlogin2=(url, data, success, fail)=> {
+  wx.request({
+    url: app.globalData.baseUrl+url,
+    data: data,
+    // header: {
+    //   'content-type': 'application/x-www-form-urlencoded;charset=UTF-8'
+    // },
+    method: 'Post',
+    success: function (res) {
+      if (res.statusCode == 200) {
+        success(res)
+      } else {
+        fail(res)
+      }
+
+    },
+    fail: function (res) {
+      fail(res)
+    },
+    complete: function (res) {
+
+    },
+  })
+}
+
 //request.get.details
 // 2020-12-31
 // by: ChristChang
@@ -109,6 +138,38 @@ const smartsearch=(url, data, success, fail)=> {
     },
     fail: function (res) {
       fail()
+    },
+    complete: function (res) {
+
+    },
+  })
+}
+
+//request.Post.search
+// 2021-06-10
+// by: ChristChang
+// url: https://github.com/Nightstars/smartui
+const smartsearch2=(url, data, success, fail)=> {
+  wx.request({
+    url: app.globalData.baseUrl+url,
+    data: data,
+    header: {
+      //'content-type': 'application/x-www-form-urlencoded;charset=UTF-8', 
+      'Authorization': `Bearer ${app.globalData.cookie}`
+    },
+    method: 'POST',
+    success: function (res) {
+      if (res.statusCode == 200) {
+          success(res.data)   
+      }else if(res.statusCode==401){
+        nav.redirect(app.globalData.loginUrl)
+      } else {
+        fail(res)
+      }
+
+    },
+    fail: function (res) {
+      fail(res)
     },
     complete: function (res) {
 
@@ -226,8 +287,10 @@ const smartpost=(url, data, success, fail)=> {
 
 module.exports = {
   login: smartlogin,
+  login2: smartlogin2,
   details: smartdetails,
   search: smartsearch,
+  search2: smartsearch2,
   audit: smartaudit,
   get: smartget,
   post: smartpost
