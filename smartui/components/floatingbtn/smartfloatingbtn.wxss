@@ -12,7 +12,7 @@
   background-size: 72% 72%;
   background-position: center;
   background-repeat: no-repeat;
-  box-shadow: 0rpx 2rpx 6rpx rgba(0,0,0,.5);
+  box-shadow: 0rpx 5rpx 10rpx rgba(10,10,10,.5);
 }
 
 .bg-color{

@@ -20,7 +20,7 @@ const smartshowerr=msg=>{
     title: msg,
     icon: 'error',
     mask: true,
-    duration: 1000,
+    duration: 2000,
   })
 }
 
@@ -33,7 +33,7 @@ const smartshowinfo=msg=>{
     title: msg,
     icon: 'none',
     mask: true,
-    duration: 1000,
+    duration: 2000,
   })
 }
 
@@ -46,7 +46,7 @@ const smartshowsuccess=()=>{
     title: '操作成功！',
     icon: 'Success',
     mask: true,
-    duration: 1000,
+    duration: 2000,
   })
 }
 
@@ -59,7 +59,20 @@ const smartshowfail=()=>{
     title: "请求失败，接口异常！",
     icon: 'none',
     mask: true,
-    duration: 1000,
+    duration: 2000,
+  })
+}
+
+//toast.audsuccess
+// 2021-01-04
+// by: Christ Chang
+// url: https://github.com/Nightstars/smartui
+const smartshowaudsuccess=()=>{
+  wx.showToast({
+    title: '审核成功！',
+    icon: 'Success',
+    mask: true,
+    duration: 2000,
   })
 }
 
@@ -67,5 +80,6 @@ module.exports = {
   err: smartshowerr,
   info: smartshowinfo,
   success: smartshowsuccess,
-  fail: smartshowfail
+  fail: smartshowfail,
+  audsuccess: smartshowaudsuccess
 }
